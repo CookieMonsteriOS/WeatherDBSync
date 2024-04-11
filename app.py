@@ -13,9 +13,10 @@ def index():
 @app.route('/weather', methods=['POST'])
 def get_weather():
     data = request.get_json()
-    lat = data.get('lat')
-    long = data.get('long')
+    lat = data.get('latitude')
+    long = data.get('longitude')
     city = data.get('city')
+    print(lat,long,city)
     return {"response":"Some inputs recieved"},200
 
 if __name__ == '__main__':
