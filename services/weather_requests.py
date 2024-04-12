@@ -17,5 +17,5 @@ def weather_location_request(latitude, longitude, city):
             database.session.rollback()
             raise e
     
-    current_location_weather = weather_client.get_location_forecast(latitude,longitude,city)
-    print(current_location_weather)
+    location_weather = weather_client.get_location_forecast(latitude,longitude,city)
+    print(location_weather['current'])
