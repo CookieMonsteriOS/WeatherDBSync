@@ -1,5 +1,6 @@
 from flask import Flask, request
 from database.db import database
+from services.weather_requests import weather_location_request
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = '' #Replace with your details
@@ -16,7 +17,7 @@ def get_weather():
     lat = data.get('latitude')
     long = data.get('longitude')
     city = data.get('city')
-    print(lat,long,city)
+    weather_location_request(latitude=lat,longitude=long,city=city)
     return {"response":"Some inputs recieved"},200
 
 if __name__ == '__main__':
