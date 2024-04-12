@@ -1,7 +1,10 @@
 from database.db import database
 from database.models.weather import Location
+from integrations.open_weather import OpenWeather
 
 def weather_location_request(latitude, longitude, city):
+
+    weather_client = OpenWeather()
 
     if latitude is None and longitude is None and city is None:
         return
@@ -14,4 +17,5 @@ def weather_location_request(latitude, longitude, city):
             database.session.rollback()
             raise e
     
-    
+    current_location_weather = weather_client.get_location_forecast(latitude,longitude,city)
+    print(current_location_weather)
