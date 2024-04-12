@@ -5,7 +5,7 @@ from integrations.open_weather import OpenWeather
 def weather_location_request(latitude, longitude, city):
 
     weather_client = OpenWeather()
-
+    #TODO Add in check that data doesn't already exist in DB
     if latitude is None and longitude is None and city is None:
         return
     else:
@@ -18,4 +18,5 @@ def weather_location_request(latitude, longitude, city):
             raise e
     
     location_weather = weather_client.get_location_forecast(latitude,longitude,city)
-    print(location_weather['current'])
+    print(location_weather)
+    return location_weather
