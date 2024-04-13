@@ -1,7 +1,7 @@
 from database.db import database
 from database.models.weather import Location, CurrentWeather
 from integrations.open_weather import OpenWeather
-from utils.util import get_todays_date, epoch_to_human_readable, kelvin_to_celsius
+from utils.util import get_todays_date, kelvin_to_celsius
 
 def weather_location_request(latitude, longitude, city):
 
@@ -19,12 +19,12 @@ def weather_location_request(latitude, longitude, city):
             raise e
     
     location_weather = weather_client.get_location_forecast(latitude,longitude,city)
-    weather_location_request_id = database.session.query(Location).filter(Location.latitude == latitude, Location.longitude == longitude).first()
-    current_date_time = get_todays_date()
+    weather_location_id = database.session.query(Location).filter(Location.latitude == latitude, Location.longitude == longitude).first()
+    weather_obsv_time = get_todays_date()
 
     try:
-        location_current_weather = CurrentWeather(location_id=weather_location_request_id, temperature= kelvin_to_celsius(location_weather.main['temp']), humidity=location_weather.main['humidity'], windspeed=location_weather.wind['wind'], pressure=location_weather.main['pressure'], observation_time=current_date_time)
-        database.session.add(location_current_weather)
+        set_location_current_weather = CurrentWeather(location_id=weather_location_id, temperature= kelvin_to_celsius(location_weather.main['temp']), humidity=location_weather.main['humidity'], windspeed=location_weather.wind['wind'], pressure=location_weather.main['pressure'], observation_time=weather_obsv_time)
+        database.session.add(set_location_current_weather)
         database.session.commit()
     except Exception as e:
         database.session.rollback()
