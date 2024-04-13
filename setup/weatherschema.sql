@@ -11,7 +11,7 @@ CREATE TABLE current_weather (
     temperature NUMERIC,
     humidity NUMERIC,
     wind_speed NUMERIC,
-    precipitation NUMERIC,
+    pressure NUMERIC,
     observation_time TIMESTAMP
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE forecast_weather (
     max_temperature NUMERIC,
     humidity NUMERIC,
     wind_speed NUMERIC,
-    precipitation NUMERIC
+    pressure NUMERIC
 );
 
 CREATE TABLE historical_weather (
@@ -33,5 +33,5 @@ CREATE TABLE historical_weather (
     temperature NUMERIC,
     humidity NUMERIC,
     wind_speed NUMERIC,
-    precipitation NUMERIC
+    pressure NUMERIC
 );

@@ -28,7 +28,7 @@ class CurrentWeather(Base):
     temperature = Column(Float, nullable=False)
     humidity = Column(Float, nullable=False)
     wind_speed = Column(Float, nullable=False)
-    precipitation = Column(Float, nullable=False)
+    pressure = Column(Float, nullable=False)
     observation_time = Column(DateTime, nullable=False)
 
     location = relationship('Location', backref='current_weather')
@@ -54,7 +54,7 @@ class ForecastWeather(Base):
     max_temperature = Column(Float, nullable=False)
     humidity = Column(Float, nullable=False)
     wind_speed = Column(Float, nullable=False)
-    precipitation = Column(Float, nullable=False)
+    pressure = Column(Float, nullable=False)
 
     location = relationship('Location', backref='forecast_weather')
 
@@ -79,7 +79,7 @@ class HistoricalWeather(Base):
     temperature = Column(Float, nullable=False)
     humidity = Column(Float, nullable=False)
     wind_speed = Column(Float, nullable=False)
-    precipitation = Column(Float, nullable=False)
+    pressure = Column(Float, nullable=False)
 
     location = relationship('Location', backref='historical_weather')
 
