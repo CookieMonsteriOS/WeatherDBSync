@@ -15,3 +15,6 @@ def get_weather_obvs_time():
     """Return observation time in the format 'YYYY-MM-DD HH:MM:SS'."""
     return datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
 
+def parse_date(date_str):
+    """Parse a date string into a datetime object."""
+    return datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
