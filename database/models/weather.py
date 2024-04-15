@@ -9,8 +9,8 @@ class Location(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False)
-    latitude = Column(Float, nullable=False)
-    longitude = Column(Float, nullable=False)
+    latitude = Column(Float(precision=10), nullable=False)
+    longitude = Column(Float(precision=10), nullable=False)
 
     def to_dict(self):
         return {

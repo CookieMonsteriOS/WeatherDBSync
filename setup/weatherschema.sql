@@ -1,8 +1,8 @@
 CREATE TABLE locations (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    latitude NUMERIC,
-    longitude NUMERIC
+    latitude FLOAT(10, 6),
+    longitude FLOAT(10, 6)
 );
 
 CREATE TABLE current_weather (
