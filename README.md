@@ -50,7 +50,7 @@ The Weather DB Sync project is a Flask-based API that integrates with the OpenWe
     - `location_id` (int): ID of the location.
     - `start_date` (string): Start date of the date range (format: YYYY-MM-DD HH:MM:SS).
     - `end_date` (string): End date of the date range (format: YYYY-MM-DD HH:MM:SS).
-- **Response:** JSON object containing the average weather data.
+- **Response:** JSON object containing the average weather temp and humidity, and other metrics for the location.
 
 **Note:** Historical weather data is not available due to limitations with the OpenWeather API. The /weather/average endpoint calculates the average weather based on the available data.
 
