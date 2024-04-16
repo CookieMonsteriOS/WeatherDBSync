@@ -65,7 +65,9 @@ To build the Docker container, use the following command:
 docker build -t app -f Dockerfile .
 ```
 
+```bash
 docker run -p 8080:5000 app
+```
 
 ## Contributing
 
