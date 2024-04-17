@@ -57,6 +57,18 @@ curl -X GET "http://localhost:5000/weather/average/1?start_date=2024-04-15%2017:
 ```
 **Note:** Historical weather data is not available due to limitations with the OpenWeather API. The /weather/average endpoint calculates the average weather based on the available data.
 
+## Running the Docker Container
+
+To build the Docker container, use the following command:
+
+```bash
+docker build -t app -f Dockerfile .
+```
+
+```bash
+docker run -p 8080:5000 app
+```
+
 ## Contributing
 
 Contributions to the Weather DB Sync project are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
