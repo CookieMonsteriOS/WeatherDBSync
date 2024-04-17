@@ -5,7 +5,7 @@ from utils.util import get_weather_obvs_time, kelvin_to_celsius
 
 def weather_location_request(latitude, longitude, city):
 
-    weather_client = OpenWeather()
+    weather_client = OpenWeather(api_key='')
     
     try:
         # Check if the location already exists in the database
